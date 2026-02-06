@@ -1,67 +1,94 @@
-# WebApp boilerplate with React JS and Flask API
+# Playlist Creator - Modernized (React 19 & Flask API)
 
-Build web applications using React.js for the front end and python/flask for your backend API.
+This project is a modernized web application built with **React 19** on the frontend and **Python 3.14 / Flask** on the backend. It includes full Spotify API integration for playlist management.
 
-- Documentation can be found here: https://start.4geeksacademy.com/starters/react-flask
-- Here is a video on [how to use this template](https://www.loom.com/share/f37c6838b3f1496c95111e515e83dd9b)
-- Integrated with Pipenv for package managing.
-- Fast deloyment to heroku [in just a few steps here](https://start.4geeksacademy.com/backend/deploy-heroku-posgres).
-- Use of .env file.
-- SQLAlchemy integration for database abstraction.
+- **Frontend**: React 19, React Router 7, Webpack 5.
+- **Backend**: Flask, SQLAlchemy 2.0, Flask-JWT-Extended.
+- **Database**: PostgreSQL (Production) / SQLite (Local Development).
+- **Environment**: Managed with Pipenv and Node 20+.
 
-### Manual Installation:
+---
 
-It is recomended to install the backend first, make sure you have Python 3.8, Pipenv and a database engine (Posgress recomended)
+## 🛠 Manual Installation
 
-1. Install the python packages: `$ pipenv install`
-2. Create a .env file based on the .env.example: `$ cp .env.example .env`
-3. Install your database engine and create your database, depending on your database you have to create a DATABASE_URL variable with one of the possible values, make sure you replace the valudes with your database information:
+### 1. Backend Setup (API)
+It is recommended to install the backend first. Ensure you have **Python 3.14** and **Pipenv** installed.
 
-| Engine    | DATABASE_URL                                        |
-| --------- | --------------------------------------------------- |
-| SQLite    | sqlite:////test.db                                  |
-| MySQL     | mysql://username:password@localhost:port/example    |
-| Postgress | postgres://username:password@localhost:5432/example |
+1.  **Install the python packages:**
+    ```sh
+    $ pipenv install
+    ```
+2.  **Create a .env file:**
+    ```sh
+    $ cp .env.example .env
+    ```
+3.  **Configure your database:**
+    In your `.env` file, set the `DATABASE_URL` variable. You can use different database engines depending on your environment:
 
-4. Migrate the migrations: `$ pipenv run migrate` (skip if you have not made changes to the models on the `./src/api/models.py`)
-5. Run the migrations: `$ pipenv run upgrade`
-6. Run the application: `$ pipenv run start`
+    | Engine         | DATABASE_URL                                        |
+    | -------------- | --------------------------------------------------- |
+    | **SQLite**     | `sqlite:////tmp/test.db` (Recommended for Local)    |
+    | **PostgreSQL** | `postgres://username:password@localhost:5432/db`    |
+    | **MySQL**      | `mysql://username:password@localhost:3306/db`       |
 
-### Backend Populate Table Users
+    *Note: If using Postgres on some platforms, ensure the URL starts with `postgresql://` (Our app handles this automatically).*
 
-To insert test users in the database execute the following command:
+4.  **Run migrations:**
+    ```sh
+    $ pipenv run upgrade
+    ```
+5.  **Run the backend application:**
+    ```sh
+    $ pipenv run start
+    ```
 
+### 2. Frontend Setup (React)
+Ensure you are using **Node version 20+** and that your backend is already running.
+
+1.  **Install the packages:**
+    ```sh
+    $ npm install
+    ```
+2.  **Start the development server:**
+    ```sh
+    $ npm run start
+    ```
+
+---
+
+## 🧪 Development Tools
+
+### Populate Test Users
+To insert test users in the database for development, execute:
 ```sh
-$ flask insert-test-users 5
+$ pipenv run flask insert-test-users 5
 ```
 
-And you will see the following message:
+### Database Management
+- **Migrate changes**: `pipenv run migrate`
+- **Upgrade database**: `pipenv run upgrade`
+- **Reset migrations**: `pipenv run reset_db`
 
-```
-  Creating test users
-  test_user1@test.com created.
-  test_user2@test.com created.
-  test_user3@test.com created.
-  test_user4@test.com created.
-  test_user5@test.com created.
-  Users created successfully!
-```
+### Admin Panel
+Once the backend is running, you can access the Flask-Admin panel at:
+`http://localhost:3001/admin`
 
-To update with all yours tables you can edit the file app.py and go to the line 80 to insert the code to populate others tables
+---
 
-### Front-End Manual Installation:
+## 🚀 Deployment
 
--   Make sure you are using node version 14+ and that you have already successfully installed and runned the backend.
+This boilerplate is 100% ready to deploy with **Render.com** and **Heroku** in a matter of minutes.
 
-1. Install the packages: `$ npm install`
-2. Start coding! start the webpack dev server `$ npm run start`
+- [Official Deployment Documentation](https://start.4geeksacademy.com/deploy).
+- [How to use this template (Video)](https://www.loom.com/share/f37c6838b3f1496c95111e515e83dd9b)
+- [How to deploy to Heroku + Postgres](https://start.4geeksacademy.com/backend/deploy-heroku-posgres)
 
-## Publish your website!
+---
 
-This boilerplate it's 100% read to deploy with Render.com and Heroku in a matter of minutes. Please read the [official documentation about it](https://start.4geeksacademy.com/deploy).
+## 👥 Contributors
 
-### Contributors
+This template was modernized by **ZeinacioCB**. 
 
-This template was built as part of the [Full Stack Developer course](https://4geeksacademy.com/us/coding-bootcamps/part-time-full-stack-developer) at [4Geeks Academy Coding Bootcamp](https://4geeksacademy.com/us/coding-bootcamp) by [Alejandro Sanchez](https://twitter.com/alesanchezr) and [many other contributors](https://github.com/4GeeksAcademy/react-flask-hello/graphs/contributors).
+Original boilerplate built as part of the [Full Stack Developer course](https://4geeksacademy.com/us/coding-bootcamps/part-time-full-stack-developer) at [4Geeks Academy Coding Bootcamp](https://4geeksacademy.com/us/coding-bootcamp) by [Alejandro Sanchez](https://twitter.com/alesanchezr) and [many other contributors](https://github.com/4GeeksAcademy/react-flask-hello/graphs/contributors).
 
 You can find other templates and resources like this at the [school github page](https://github.com/4geeksacademy/).
