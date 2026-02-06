@@ -79,4 +79,4 @@ diagram.png
 __pycache__/
 
 # ignore gemini.md
-!.gemini.md
+gemini.md
