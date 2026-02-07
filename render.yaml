@@ -20,7 +20,7 @@ services:
           - key: FLASK_APP_KEY
             value: "generate-a-secure-key-here"
           - key: PYTHON_VERSION
-            value: 3.12.0
+            value: 3.13.0
           - key: NODE_VERSION
             value: 20.10.0
           - key: DATABASE_URL
