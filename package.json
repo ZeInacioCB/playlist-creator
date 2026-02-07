@@ -58,5 +58,24 @@
 		"react-router-dom": "^7.1.0",
 		"react-spotify-embed": "^2.1.0",
 		"spotify-web-api-js": "^1.5.2"
+	},
+	"babel": {
+		"presets": [
+			[
+				"@babel/preset-env",
+				{
+					"targets": "defaults"
+				}
+			],
+			[
+				"@babel/preset-react",
+				{
+					"runtime": "automatic"
+				}
+			]
+		],
+		"plugins": [
+			"@babel/plugin-transform-runtime"
+		]
 	}
 }
