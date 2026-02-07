@@ -2,7 +2,11 @@
 # exit on error
 set -o errexit
 
-# Install Backend Dependencies First
+# Render has python and pip, but we need to ensure pipenv is available
+# if it's not in the PATH of the current build image.
+pip install pipenv
+
+# Install Backend Dependencies
 pipenv install
 pipenv run upgrade
 
